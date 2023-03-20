@@ -3,6 +3,72 @@
 
         <h3 class="text-center font-bold text-3xl text-orange-500 uppercase mb-5">Create Customer</h3>
 
+        <div class="form-container bg-gray-100 p-10 rounded-md w-full max-w-3xl">
+
+            <form [formGroup]="customerForm" (ngSubmit)="submit()">
+
+                <div class="grid grid-cols-2 gap-7">
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" formControlName="lastName" id="lastName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-orange-200 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="lastName" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last Name</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" formControlName="firstName" id="firstName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-orange-200 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="firstName" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First Name</label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-7">
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="email" formControlName="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-orange-200 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email Address</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" formControlName="phone" id="phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-orange-200 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone Number</label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-7">
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="email" formControlName="address" id="address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-orange-200 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="address" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="number" formControlName="balance" id="balance" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-orange-200 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="balance" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Balance</label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-7">
+                    <div class="flex flex-col">
+                        <label for="gender" class="text-gray-400 text-sm">Gender</label>
+                        <select id="gender" formControlName="gender" class="text-gray-400 p-2 mt-2 border border-gray-300 bg-gray-100 rounded-lg" required>
+                            <option></option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="type" class="text-gray-400 text-sm">Account type</label>
+                        <select id="type" formControlName="type" class="text-gray-400 p-2 mt-2 border border-gray-300 bg-gray-100 rounded-lg" required>
+                            <option></option>
+                            <option value="save">Saving</option>
+                            <option value="check">Checking</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center justify-center">
+                    <button type="reset" class="text-gray-100 bg-gray-500 font-bold uppercase m-2 mt-5 px-20 py-3 rounded-md text-sm cursor-pointer">Reset</button>
+                    <button type="submit" class="text-gray-100 bg-blue-700 font-bold uppercase m-2 mt-5 px-20 py-3 rounded-md text-sm cursor-pointer" [disabled]="isLoading || !canSubmit()">{{isLoading ? 'Submission...': 'Submit'}}</button>
+                </div>
+
+            </form>
+
+        </div>
+
     </div>
 
     <app-footer></app-footer>

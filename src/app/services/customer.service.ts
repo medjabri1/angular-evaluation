@@ -44,7 +44,7 @@ export class CustomerService {
     if(searchBy == 'id') {
       return this.http.get<Customer[]>(`${API_URL}?${searchBy}_like=${query}`);
     } else {
-      return this.http.get<Customer[]>(`${API_URL}?${searchBy}_like=${query}`);
+      return this.http.get<Customer[]>(`${API_URL}?q=${query}`);
     }
   }
 
