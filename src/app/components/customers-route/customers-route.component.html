@@ -1,0 +1,98 @@
+<div class="container pt-20 mx-auto max-w-6xl bg-gray-900 w-full min-h-screen flex flex-col text-gray-50">
+    <div class="customers p-10 flex-1 w-full h-full flex flex-col items-center justify-start">
+
+        <div class="flex flex-row items-center justify-between w-full">
+
+            <h3 class="text-center font-bold text-3xl text-orange-500 uppercase">Customers List</h3>
+
+            <a class="bg-orange-500 text-gray-900 font-bold px-8 py-2 rounded-md uppercase hover:bg-orange-600 transition-all" routerLink="/create">
+                Create Customer
+            </a>
+
+        </div>
+
+
+        <hr class="border border-white w-full rounded-full my-8 border-opacity-10">
+
+        <div class="flex flex-row w-full items-center justify-between">
+
+            <select 
+                name="searchby" 
+                id="searchby" 
+                class="bg-gray-50 text-gray-900 font-bold block p-2 border-2 border-white mr-2 outline-none cursor-pointer rounded-tl-lg rounded-bl-lg"
+                [(ngModel)]="searchBy"
+            >
+                <option value="id" class="font-light text-gray-900 p-2 m-2" selected>Account N°</option>
+                <option value="name" class="font-light text-gray-900 p-2 m-2">Name</option>
+            </select>
+
+            <input 
+                type="text"
+                class="p-2 bg-gray-50 text-gray-900 outline-none border-2 border-white w-full placeholder:text-gray-400 font-bold rounded-br-lg rounded-tr-lg"
+                placeholder="Search Query..."
+                (input)="onQuery($event)"
+            >
+
+        </div>
+
+        <table *ngIf="customers.length > 0" class="w-full m-10 bg-gray-50 text-gray-900 rounded-xl overflow-hidden">
+
+            <thead class="">
+                <tr class="border-2 border-gray-900 bg-orange-500">
+                    <th class="text-start font-bold my-3 px-5 py-3 border border-gray-300">Account N°</th>
+                    <th class="text-start font-bold my-3 px-5 py-3 border border-gray-300">First Name</th>
+                    <th class="text-start font-bold my-3 px-5 py-3 border border-gray-300">Last Name</th>
+                    <!-- <th class="text-start font-bold my-3 px-5 py-3 border border-gray-300">Email</th> -->
+                    <th class="text-start font-bold my-3 px-5 py-3 border border-gray-300">Balance ($)</th>
+                    <th class="text-start font-bold my-3 px-5 py-3 border border-gray-300">Details</th>
+                    <th class="text-start font-bold my-3 px-5 py-3 border border-gray-300">Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let customer of customers" class="border-2 border-gray-900 odd:bg-gray-200">
+
+                    <td class="my-3 px-5 py-3 border border-gray-300" >{{ customer.id }}</td>
+                    <td class="my-3 px-5 py-3 border border-gray-300" >{{ customer.firstName }}</td>
+                    <td class="my-3 px-5 py-3 border border-gray-300" >{{ customer.lastName }}</td>
+                    <!-- <td class="my-3 px-5 py-3 border border-gray-300" >{{ customer.email }}</td> -->
+                    <td class="my-3 px-5 py-3 border border-gray-300 text-end" >{{ customer.balance }}</td>
+                    <td class="my-3 px-5 py-3 border border-gray-300 text-center" >
+                        <a [routerLink]="['/details', customer.id]">
+                            <fa-icon [icon]="faCircleInfo" class="text-2xl text-blue-700" title="Customer Details"></fa-icon>
+                        </a>
+                    </td>
+                    <td class="my-3 px-5 py-3 border border-gray-300 text-center" >
+                        <fa-icon 
+                            *ngIf="!getIsDeleteLoading(customer)"
+                            [icon]="faCircleXmark" 
+                            class="text-2xl text-red-500 cursor-pointer" 
+                            title="Delete Customer" 
+                            (click)="removeCustomer(customer)">
+                        </fa-icon>
+
+                        <fa-icon 
+                            *ngIf="getIsDeleteLoading(customer)"
+                            [icon]="faSpinner" 
+                            class="text-2xl text-blue-500 cursor-pointer" 
+                            title="Loading" >
+                        </fa-icon>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+        
+        <span 
+            *ngIf="customers.length < 1"
+            class="text-gray-200 mt-20"
+        >
+            No customers found
+        </span>
+
+    </div>
+
+    <app-footer></app-footer>
+</div>

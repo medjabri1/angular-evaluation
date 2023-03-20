@@ -1,0 +1,120 @@
+<div class="container pt-20 mx-auto max-w-6xl bg-gray-900 w-full min-h-screen flex flex-col text-gray-50">
+    <div class="about pt-10 flex-1 w-full h-full flex flex-col items-center justify-start p-10">
+
+        <h3 class="text-center font-bold text-3xl text-orange-500 uppercase mb-5">Customer Details</h3>
+
+        <div *ngIf="customer" class="w-full max-w-3xl card bg-gray-200 text-gray-900 rounded-lg overflow-hidden">
+
+            <div class="flex flex-row items-center justify-start">
+                <p class="border border-gray-400 px-3 py-5 w-full text-center"><strong>Account N°:</strong> {{ customer.id }}</p>
+            </div>
+
+            <div class="flex flex-row items-center justify-start">
+                <span class="border border-gray-400 px-3 py-5 w-1/6  font-bold">Last Name:</span>
+                <app-editable-element class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.lastName" 
+                    [type]="'text'" 
+                    [prop]="'lastName'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+                
+                <span class="border border-gray-400 px-3 py-5 w-1/6 font-bold">First Name:</span>
+                <app-editable-element 
+                    class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.firstName" 
+                    [type]="'text'" 
+                    [prop]="'firstName'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+            </div>
+            
+            <div class="flex flex-row items-center justify-start">
+                <span class="border border-gray-400 px-3 py-5 w-1/6 font-bold">Email:</span>
+                <app-editable-element class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.email" 
+                    [type]="'email'"  
+                    [prop]="'email'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+
+                <span class="border border-gray-400 px-3 py-5 w-1/6 font-bold">Address:</span>
+                <app-editable-element class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.address" 
+                    [type]="'text'"  
+                    [prop]="'address'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+                
+            </div>
+            
+            <div class="flex flex-row items-center justify-start">
+                <span class="border border-gray-400 px-3 py-5 w-1/6 font-bold">Phone:</span>
+                <app-editable-element class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.phone" 
+                    [type]="'text'"  
+                    [prop]="'phone'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+                
+                
+                <span class="border border-gray-400 px-3 py-5 w-1/6 font-bold">Gender:</span>
+                <app-editable-element class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.gender" 
+                    [type]="'gender'"  
+                    [prop]="'gender'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+            </div>
+            
+            <div class="flex flex-row items-center justify-start">
+                <span class="border border-gray-400 px-3 py-5 w-1/6 font-bold">Balance ($):</span>
+                <app-editable-element class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.balance.toString()" 
+                    [type]="'number'"  
+                    [prop]="'balance'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+                
+                <span class="border border-gray-400 px-3 py-5 w-1/6 font-bold">Type:</span>
+                <app-editable-element class="border border-gray-400 w-2/6" 
+                    [isEditing]="isEditing" 
+                    [value]="customer.type" 
+                    [type]="'accountType'"  
+                    [prop]="'type'"
+                    (change)="valueChange($event)">
+                </app-editable-element>
+            </div>
+
+        </div>
+
+        <div>
+            <button 
+                *ngIf="!isEditing" 
+                class="bg-blue-200 text-gray-700 text-sm font-medium px-8 py-2 mx-2 my-10 rounded-md uppercase hover:bg-blue-400 transition-all"
+                (click)="editCustomer()"
+            >
+                <fa-icon [icon]="faFileEdit"></fa-icon>
+                <span class="ml-2">Edit</span>
+            </button>
+
+            <button 
+                *ngIf="isEditing" 
+                class="bg-green-500 text-gray-700 text-sm font-medium px-8 py-2 mx-2 my-10 rounded-md uppercase hover:bg-green-600 transition-all"
+                (click)="saveEdits()"
+            >
+                <fa-icon [icon]="faSave"></fa-icon>
+                <span class="ml-2">Save</span>
+            </button>
+        </div>
+
+    </div>
+
+    <app-footer></app-footer>
+</div>

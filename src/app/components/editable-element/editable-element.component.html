@@ -1,0 +1,27 @@
+<p *ngIf="!isEditing" class="px-3 py-5">{{value}}</p>
+
+<input 
+    *ngIf="isEditing && (type === 'text' || type === 'number' || type === 'email')" 
+    [type]="type" 
+    class="border-none outline-none px-3 py-5 w-full" 
+    [value]="value"
+    (input)="onChange($event)"
+>
+
+<select 
+    name="" id="" 
+    *ngIf="isEditing && type === 'gender'"
+    class="border-none outline-none px-3 py-5 w-full" 
+    (change)="onChange($event)"
+>
+    <option *ngFor="let gender of genders" [value]="gender" [selected]="gender == value ? true : false">{{gender}}</option>
+</select>
+
+<select 
+    name="" id="" 
+    *ngIf="isEditing && type === 'accountType'"
+    class="border-none outline-none px-3 py-5 w-full" 
+    (change)="onChange($event)"
+>
+    <option *ngFor="let type of types" [value]="type" [selected]="type == value ? true : false">{{type}}</option>
+</select>

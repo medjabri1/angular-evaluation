@@ -1,0 +1,61 @@
+<div class="container pt-20 mx-auto max-w-6xl bg-gray-900 w-full min-h-screen flex flex-col text-gray-50">
+    <div class="dashboard flex-1 w-full h-full flex flex-col items-center justify-center ">
+
+        <h3 class="text-center font-bold text-3xl text-orange-500 uppercase ">Dashboard</h3>
+
+        <div class="grid grid-cols-2 gap-5 p-10 w-full pointer-events-none select-none max-w-5xl">
+
+            <div class="rounded-md w-full bg-orange-500 flex flex-row justify-start">
+                <fa-icon [icon]="faUser" class="text-4xl self-center text-center w-20"></fa-icon>
+                <div class="py-4 pr-10 flex flex-col flex-1">
+                    <h3 class="text-white uppercase font-bold opacity-80 text-md">Total customers</h3>
+                    <h1 class="text-gray-900 text-4xl font-bold self-end">{{ this.stats.total_customers }}</h1>
+                </div>
+            </div>
+
+            <div class="rounded-md w-full bg-teal-500 flex flex-row justify-start">
+                <fa-icon [icon]="faDollarSign" class="text-4xl self-center text-center w-20"></fa-icon>
+                <div class="py-4 pr-10 flex flex-col flex-1">
+                    <h3 class="text-white uppercase font-bold opacity-80 text-md">Total Balance</h3>
+                    <h1 class="text-gray-900 text-4xl font-bold self-end">{{ this.stats.total_balance }}</h1>
+                </div>
+            </div>
+
+            <div class="rounded-md w-full bg-teal-500 flex flex-row justify-start">
+                <fa-icon [icon]="faMars" class="text-4xl self-center text-center w-20"></fa-icon>
+                <div class="py-4 pr-10 flex flex-col flex-1">
+                    <h3 class="text-white uppercase font-bold opacity-80 text-md">Total Male</h3>
+                    <h1 class="text-gray-900 text-4xl font-bold self-end">{{ this.stats.total_male }}</h1>
+                </div>
+            </div>
+
+            <div class="rounded-md w-full bg-orange-500 flex flex-row justify-start">
+                <fa-icon [icon]="faVenus" class="text-4xl self-center text-center w-20"></fa-icon>
+                <div class="py-4 pr-10 flex flex-col flex-1">
+                    <h3 class="text-white uppercase font-bold opacity-80 text-md">Total Female</h3>
+                    <h1 class="text-gray-900 text-4xl font-bold self-end">{{ this.stats.total_female }}</h1>
+                </div>
+            </div>
+            
+            <div class="rounded-md w-full bg-orange-500 flex flex-row justify-start">
+                <fa-icon [icon]="faPiggyBank" class="text-4xl self-center text-center w-20"></fa-icon>
+                <div class="py-4 pr-10 flex flex-col flex-1">
+                    <h3 class="text-white uppercase font-bold opacity-80 text-md">Saving Accounts</h3>
+                    <h1 class="text-gray-900 text-4xl font-bold self-end">{{ this.stats.total_save }}</h1>
+                </div>
+            </div>
+
+            <div class="rounded-md w-full bg-teal-500 flex flex-row justify-start">
+                <fa-icon [icon]="faMoneyBill" class="text-4xl self-center text-center w-20"></fa-icon>
+                <div class="py-4 pr-10 flex flex-col flex-1">
+                    <h3 class="text-white uppercase font-bold opacity-80 text-md">Checking Accounts</h3>
+                    <h1 class="text-gray-900 text-4xl font-bold self-end">{{ this.stats.total_check }}</h1>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-footer></app-footer>
+</div>

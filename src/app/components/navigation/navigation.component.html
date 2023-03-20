@@ -1,0 +1,49 @@
+<div class="header bg-gray-900 shadow shadow-gray-700 fixed w-full flex-col items-center justify-center">
+    <nav class="containr max-w-7xl mx-auto flex h-full flex-row items-center justify-between px-10 py-2">
+        <a class="nav-logo font-bold text-orange-500 hover:text-opacity-90 uppercase rounded-md" routerLink="/">
+            Bank Management
+        </a>
+        <ul class="nav-list flex flex-row items-center justify-center">
+            <li class="m-1">
+                <a 
+                    class="uppercase px-3 py-2 items-center justify-center text-xs rounded-md text-gray-200 hover:text-gray-100" 
+                    routerLink="/"
+                    [routerLinkActiveOptions]="{exact: true}" 
+                    routerLinkActive="text-slate-50 bg-orange-500 bg-opacity-50"
+                >
+                    Home
+                </a>
+            </li>
+            <li class="m-1">
+                <a 
+                    class="uppercase px-3 py-2 items-center justify-center text-xs rounded-md text-gray-200 hover:text-gray-100" 
+                    routerLink="/dashboard"
+                    [routerLinkActiveOptions]="{exact: true}" 
+                    routerLinkActive="text-slate-50 bg-orange-500 bg-opacity-50"
+                >
+                    Dashboard
+                </a>
+            </li>
+            <li class="m-1">
+                <a 
+                    class="uppercase px-3 py-2 items-center justify-center text-xs rounded-md text-gray-200 hover:text-gray-100" 
+                    routerLink="/customers"
+                    [routerLinkActiveOptions]="{exact: true}" 
+                    routerLinkActive="text-slate-50 bg-orange-500 bg-opacity-50"
+                >
+                    customers
+                </a>
+            </li>
+            <li class="m-2 mr-0">
+                <a 
+                    class="uppercase px-3 py-2 items-center justify-center text-xs rounded-md text-gray-200 hover:text-gray-100" 
+                    routerLink="/about"
+                    [routerLinkActiveOptions]="{exact: true}" 
+                    routerLinkActive="text-slate-50 bg-orange-500 bg-opacity-50"
+                >
+                    About
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
